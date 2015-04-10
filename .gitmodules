@@ -1,0 +1,3 @@
+[submodule "util/jbash"]
+	path = util/jbash
+	url = git@github.com:jawdev/jbash.git
