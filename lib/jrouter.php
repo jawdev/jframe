@@ -21,7 +21,8 @@ class JRouter {
 	private static function route() {
 		$segs = JURL::getSegments();
 		if( count( $segs ) == 0 || empty( $segs[0] ) ) {
-			include( JFRAME_PATH_LOCAL_PAGES.JFRAME_PAGE_DEFAULT.'.php' );
+			if( file_exists( JFRAME_PATH_LOCAL_PAGES.JFRAME_PAGE_DEFAULT.'.php' ) ) JPage::loadPage( JFRAME_PAGE_DEFAULT );
+			else JPage::loadPage( JFRAME_PAGE_ERROR );
 			return;
 		}
 		$dir = "";

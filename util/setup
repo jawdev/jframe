@@ -85,10 +85,10 @@ if $htaccess_copied; then
 	htaccess_file="$basedir/public/.htaccess"
 	if ! $setup_copied; then
 		JBASH_IO_ask "URL Prefix"
-		read setting_url
-		setting_url=$(JBASH_FORMAT_endslash $setting_url)
+		read setting_url_sub
+		setting_url=$(JBASH_FORMAT_endslash $setting_url_sub)
 	fi
-	sed -i.bak "s#__PATH_URL__#$setting_url#" "$htaccess_file"
+	sed -i.bak "s#__PATH_URL__#$setting_url_sub#" "$htaccess_file"
 	rm "${htaccess_file}.bak"
 fi
 
